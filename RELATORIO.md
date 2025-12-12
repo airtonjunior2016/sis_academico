@@ -1,69 +1,38 @@
-📘 RELATÓRIO TÉCNICO – SISTEMA ACADÊMICO (CLI + SQLite)
-1. Introdução
+📚 Sistema Acadêmico – Relatório Técnico
+📝 1. Introdução
 
-O presente relatório descreve o desenvolvimento de um Sistema Acadêmico implementado em Python, com interface em linha de comando (CLI) e persistência de dados utilizando o banco de dados SQLite.
-O objetivo principal do projeto é demonstrar conceitos de orientação a objetos, arquitetura modular, persistência, validação de regras de negócio e boas práticas de programação.
+Este projeto consiste no desenvolvimento de um Sistema Acadêmico em Python, executado via interface de linha de comando (CLI), com foco em boas práticas de programação orientada a objetos, modularização, persistência de dados e validações robustas.
+O sistema permite gerenciar cursos, turmas, alunos, matrículas, notas, frequência e cálculo de CR.
 
-O sistema permite gerenciar cursos, turmas, alunos, matrículas, notas, frequência e cálculo de CR (Coeficiente de Rendimento), oferecendo assim uma solução completa e funcional para gerenciamento acadêmico básico.
+🎯 2. Objetivos do Sistema
 
-2. Objetivos do Sistema
-2.1 Objetivo Geral
+Organizar dados acadêmicos de forma estruturada.
 
-Desenvolver um sistema acadêmico simples, robusto e modular que permita o cadastro e controle de informações essenciais ao ambiente educacional.
+Aplicar princípios de POO, como encapsulamento, herança e métodos especiais.
 
-2.2 Objetivos Específicos
+Utilizar persistência em SQLite para garantir armazenamento seguro dos registros.
 
-Criar uma solução baseada em Python + SQLite.
+Disponibilizar funções essenciais para operações acadêmicas reais:
 
-Implementar um menu interativo para execução de operações.
+Cadastro e edição de entidades
 
-Utilizar classes e dataclasses para modelagem do domínio.
+Matrícula com controle de vagas
 
-Garantir validações como:
+Detecção de conflitos
 
-pré-requisitos
+Registro de notas e frequência
 
-limite de vagas
+Histórico acadêmico
 
-conflito de horários
+Cálculo de Coeficiente de Rendimento (CR)
 
-Registrar notas e frequência dos alunos matriculados.
+🧩 3. Arquitetura Geral
 
-Gerar histórico acadêmico e cálculo do CR.
+O sistema é dividido em camadas lógicas:
 
-3. Tecnologias Utilizadas
+🔸 Entidades (Modelos)
 
-Python 3.x
-
-SQLite (sqlite3)
-
-JSON (para pré-requisitos)
-
-Dataclasses
-
-Arquitetura procedural + orientada a objetos
-
-4. Arquitetura do Sistema
-
-O sistema é dividido em quatro blocos principais:
-
-4.1 Camada de Banco de Dados
-
-Responsável pela criação e manutenção das tabelas:
-
-cursos
-
-turmas
-
-alunos
-
-matriculas
-
-Realiza operações CRUD e consultas para validações.
-
-4.2 Modelos (Classes)
-
-Representados via dataclasses:
+Implementadas com @dataclass, representando cada elemento do domínio acadêmico:
 
 Curso
 
@@ -73,124 +42,124 @@ Aluno
 
 Matricula
 
-Todas herdando de EntidadeBase, que fornece um __repr__ automático.
+Todas herdam de EntidadeBase, que fornece métodos especiais e padronização.
 
-4.3 Serviços (Regras de Negócio)
+🔸 Persistência
 
-Funções que implementam:
+Banco: SQLite
 
-Matrícula com validações
+Acesso via módulo interno (DAO)
 
-Registro de notas e frequência
+Tabelas criadas automaticamente no primeiro uso
 
-Busca de entidades
+🔸 Camada de Lógica (Serviços)
 
-Relatório e cálculo de CR
+Responsável por:
 
-4.4 Interface (CLI)
+Validações
 
-Menu interativo com todas as opções da aplicação.
-
-
-5. Funcionalidades Implementadas
-5.1 Cursos
-
-Cadastro, edição e exclusão
-
-Pré-requisitos usando JSON
-
-Listagem
-
-5.2 Turmas
-
-Cadastro, edição e exclusão
+Regras de negócio
 
 Controle de vagas
 
-Checagem de conflito de horários
+Pré-requisitos
 
-Listagem
+Registro de notas e frequência
 
-5.3 Alunos
+Cálculo de CR
 
-Cadastro, edição e exclusão
+🔸 Interface CLI
 
-Listagem
+Menu textual simples e organizado, permitindo navegação rápida.
 
-5.4 Matrículas
+📋 4. Funcionalidades do Sistema
 
-Verificação de pré-requisitos
+O menu oferece as seguintes operações:
 
-Verificação de vagas disponíveis
+Nº	Função
+1	Adicionar curso
+2	Adicionar turma
+3	Adicionar aluno
+4	Matricular aluno
+5	Registrar nota
+6	Registrar frequência
+7	Histórico do aluno
+8	Editar curso
+9	Excluir curso
+10	Editar turma
+11	Excluir turma
+12	Editar aluno
+13	Excluir aluno
+14	Listar cursos
+15	Listar turmas
+16	Listar alunos
+17	Calcular CR
+0	Sair
 
-Verificação de choque de horário
+🧪 5. Tratamento de Erros e Validações
 
-Salvamento da matrícula
+O sistema valida:
 
-5.5 Notas e Frequência
+Pré-requisitos antes da matrícula
 
-Registro de nota final
+Choque de horário entre turmas
 
-Registro de frequência
+Limite máximo de vagas
 
-5.6 Relatórios
+Matrícula duplicada
 
-Histórico completo do aluno
+Inserção de notas e frequência válidas
 
-Cálculo do CR com base na média das notas
+Exclusão segura sem corromper registros
 
-6. Menu Principal
-=== MENU DO SISTEMA ACADÊMICO ===
-1. Adicionar curso
-2. Adicionar turma
-3. Adicionar aluno
-4. Matricular aluno
-5. Registrar nota
-6. Registrar frequência
-7. Histórico do aluno
-8. Editar curso
-9. Excluir curso
-10. Editar turma
-11. Excluir turma
-12. Excluir aluno
-14. Listar cursos
-15. Listar turmas
-16. Listar alunos
-17. Calcular CR (aluno)
-0. Sair
+🔢 6. Cálculo do Coeficiente de Rendimento (CR)
 
-7. Regras de Negócio Importantes
+O CR do aluno é calculado com base nas notas finais das disciplinas concluídas, aplicando:
 
-Pré-requisitos: O aluno só pode se matricular se já tiver concluído com nota ≥ 6 todos os cursos exigidos.
-
-Conflito de horário: Não é permitido matricular um aluno em duas turmas com o mesmo horário.
-
-Limite de vagas: A matrícula só ocorre se vagões disponíveis.
-
-CR: Média aritmética das notas registradas.
-
-8. Execução do Sistema
-
-Instale Python 3.x
-
-Execute:
-
-python3 sistema_academico.py
+CR = soma(notas) / quantidade_de_disciplinas
 
 
-O banco gestor_academico.db será criado automaticamente.
+O valor é exibido com duas casas decimais.
 
-9. Conclusão
+🖥️ 7. Tecnologias Utilizadas
 
-O sistema acadêmico desenvolvido cumpre todos os requisitos propostos, proporcionando um ambiente robusto e funcional para cadastro, controle e consulta de dados educacionais.
-Além disso, demonstra de forma prática conceitos importantes de:
+Python 3.x
 
-orientação a objetos
+SQLite3
 
-persistência de dados
+Dataclasses
 
-regras de negócio
+JSON (para pré-requisitos)
 
-modularização
+Estrutura CLI
 
-encapsulamento
+📦 8. Como Executar
+python sistema_academico.py
+
+
+O sistema cria automaticamente o banco academico.db se não existir.
+
+🧱 9. Estrutura de Pastas (sugerida)
+/sistema_academico
+│── sistema_academico.py
+│── database.py
+│── models/
+│     ├── curso.py
+│     ├── turma.py
+│     ├── aluno.py
+│     └── matricula.py
+│── README.md
+│── RELATORIO.md
+│── academico.db
+
+🏁 10. Conclusão
+
+O Sistema Acadêmico demonstra:
+
+Aplicação prática de POO
+
+Projeto organizado e modular
+
+Persistência confiável com SQLite
+
+Operações acadêmicas completas e robustas
