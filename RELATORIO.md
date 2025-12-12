@@ -1,4 +1,5 @@
 📚 Sistema Acadêmico – Relatório Técnico
+
 📝 1. Introdução
 
 Este projeto consiste no desenvolvimento de um Sistema Acadêmico em Python, executado via interface de linha de comando (CLI), com foco em boas práticas de programação orientada a objetos, modularização, persistência de dados e validações robustas.
@@ -95,7 +96,6 @@ Nº	Função
 16	Listar alunos
 17	Calcular CR
 0	Sair
-
 🧪 5. Tratamento de Erros e Validações
 
 O sistema valida:
