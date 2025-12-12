@@ -6,10 +6,10 @@
 ## CURSO ANALISE E DESENVOLVIMENTO DE SISTEMAS - PROGRAMAÇÃO ORIENTADA OBJETO (PROJETO FINAL)
 
 ALUNOS: 
---Francisco Airton Araujo Junior - 2023010960
---Francisco Eduardo da Silva - 2023009600
---Ismael Gomes da Silva - 2023011143
---Rodrigo Bezerra Nunes - 2023018707
+*Francisco Airton Araujo Junior - 2023010960
+*Francisco Eduardo da Silva - 2023009600
+*Ismael Gomes da Silva - 2023011143
+*Rodrigo Bezerra Nunes - 2023018707
 
 
 Sistema acadêmico simples e funcional desenvolvido em **Python**, com persistência em **SQLite**, seguindo boas práticas de **Programação Orientada a Objetos**, uso de **dataclasses**, serviços organizados e uma interface **CLI**.
