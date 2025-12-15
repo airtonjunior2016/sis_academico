@@ -18,7 +18,7 @@ Atributos:
 - `nome` — Nome completo do curso
 - `prerequisitos` — Lista de códigos de cursos exigidos (JSON)
 
-Função no sistema:
+Métodos:
 
 - Serve como base para definir turmas
 - Controla pré-requisitos na matrícula
@@ -38,7 +38,7 @@ Atributos:
 - `limite_vagas` — Capacidade máxima
 - `vagas_ocupadas` — Contador de alunos já matriculados
 
-Função no sistema:
+Métodos:
 
 - Usada para matrículas, detecção de conflitos e listar ofertas de curso
 
@@ -53,7 +53,7 @@ Atributos:
 - `matricula` — Identificador único do aluno
 - `nome` — Nome completo do aluno
 
-Função no sistema:
+Métodos:
 
 - Base para matrícula
 - Utilizada nos relatórios e histórico
@@ -71,7 +71,7 @@ Atributos:
 - `nota` — Nota final (opcional)
 - `frequencia` — Frequência final (opcional)
 
-Função no sistema:
+Métodos:
 
 - Permite registrar notas, frequência e gerar histórico
 - Importante para cálculo do CR
@@ -79,13 +79,4 @@ Função no sistema:
 
 ---
 
-### 🏛 **Herança**
 
-Todas as classes herdam de:
-
-### 🔸 `EntidadeBase`
-
-Fornece:
-
-- `__repr__` automático
-- Ajuda na depuração e logging de entidades
