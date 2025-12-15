@@ -1,10 +1,10 @@
 # 🎓 **Principais Classes do Sistema Acadêmico**
 
 **ALUNOS**: :rocket:
-* Francisco Airton Araujo Junior - 2023010960 (Responsável pelo codigo CLI)
+* Francisco Airton Araujo Junior - 2023010960 (Responsável pela interface CLI)
 * Francisco Eduardo da Silva - 2023009600 (Responsável pelo README e RELATÓRIO)
 * Ismael Gomes da Silva - 2023011143 (Responsável pelo README e RELATÓRIO)
-* Rodrigo Bezerra Nunes - 2023018707 (Responsável pelo codigo CLI)
+* Rodrigo Bezerra Nunes - 2023018707 (Responsável pela interface CLI)
 
 O sistema utiliza **dataclasses** para representar as entidades principais do domínio acadêmico. Cada classe corresponde a uma tabela no banco SQLite e encapsula informações essenciais do sistema.
 
