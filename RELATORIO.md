@@ -2,10 +2,10 @@
 
 **Relatório Técnico – Sistema de Gestão Acadêmica**
 * **Disciplina: Programação Orientada a Objetos**
-* **Autores: Francisco Airton Araujo Junior - 2023010960
-Francisco Eduardo da Silva - 2023009600
-Ismael Gomes da Silva - 2023011143
-Rodrigo Bezerra Nunes - 2023018707**
+* **Autores:** * Francisco Airton Araujo Junior - 2023010960
+* Francisco Eduardo da Silva - 2023009600
+* Ismael Gomes da Silva - 2023011143
+* Rodrigo Bezerra Nunes - 2023018707**
 
 ---
 
