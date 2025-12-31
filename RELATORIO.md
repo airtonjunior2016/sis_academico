@@ -2,7 +2,10 @@
 
 **Relatório Técnico – Sistema de Gestão Acadêmica**
 * **Disciplina: Programação Orientada a Objetos**
-* **Autores: Airton Junior, Francisco Eduardo**
+* **Autores: Francisco Airton Araujo Junior - 2023010960
+Francisco Eduardo da Silva - 2023009600
+Ismael Gomes da Silva - 2023011143
+Rodrigo Bezerra Nunes - 2023018707**
 
 ---
 
@@ -147,20 +150,9 @@ O principal diferencial técnico do projeto está no **algoritmo de matrícula**
 * Escrita no banco: `json.dumps(lista)`;
 * Leitura do banco: `json.loads(string)`.
 
-Essa abordagem manteve a flexibilidade da Orientação a Objetos dentro de um banco relacional rígido.
-
 ---
 
 ## ✅ Conclusão e Trabalhos Futuros
 
 O sistema desenvolvido atende com êxito aos requisitos de gestão acadêmica, oferecendo uma aplicação segura, validada e portátil. O uso do **SQLite** garante simplicidade e mobilidade, enquanto a **Programação Orientada a Objetos** facilita a manutenção e evolução do código.
 
-### Possíveis Evoluções
-
-* Implementação de uma **Interface Gráfica (GUI)**;
-* Sistema de autenticação com níveis de acesso (Administrador e Aluno);
-* Implementação de **exclusão em cascata (Cascade Delete)** para maior integridade referencial.
-
----
-
-📌 *Projeto acadêmico desenvolvido para fins educacionais.*
