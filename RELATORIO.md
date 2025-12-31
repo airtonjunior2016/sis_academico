@@ -56,4 +56,111 @@ Desenvolver uma aplicação em linha de comandos (**CLI**) que permita o control
 O sistema adota uma **arquitetura modular implícita**, organizada em três camadas lógicas:
 
 * **Modelo (Models)**
-  Representado pelas *dataclasses* (`Curso`, `Turma`, `Aluno`), respons
+  Representado pelas *dataclasses* (`Curso`, `Turma`, `Aluno`), responsáveis pela estrutura dos dados em memória.
+
+* **Persistência (Database)**
+  Funções responsáveis pela conexão com o banco de dados, criação das tabelas e execução de consultas SQL seguras (uso de *placeholders* para prevenir SQL Injection).
+
+* **Regras de Negócio (Services)**
+  Núcleo lógico do sistema, onde ocorrem as validações críticas, como matrícula, verificação de conflitos e controle de vagas.
+
+---
+
+## 🗂️ Modelagem de Dados
+
+### Diagrama Entidade-Relacionamento (ER)
+
+```mermaid
+erDiagram
+    CURSOS ||--o{ TURMAS : "gera"
+    TURMAS ||--o{ MATRICULAS : "possui"
+    ALUNOS ||--o{ MATRICULAS : "realiza"
+
+    CURSOS {
+        TEXT codigo PK "Chave Primária"
+        TEXT nome
+        TEXT prerequisitos "JSON (Lista serializada)"
+    }
+
+    TURMAS {
+        TEXT codigo PK "Chave Primária"
+        TEXT curso_codigo FK "Ref. Cursos"
+        TEXT professor
+        TEXT horario
+        INTEGER limite_vagas
+        INTEGER vagas_ocupadas
+    }
+
+    ALUNOS {
+        TEXT matricula PK "Chave Primária"
+        TEXT nome
+    }
+
+    MATRICULAS {
+        INTEGER id PK "Autoincremento"
+        TEXT aluno_matricula FK "Ref. Alunos"
+        TEXT turma_codigo FK "Ref. Turmas"
+        REAL nota
+        REAL frequencia
+    }
+```
+
+---
+
+## 🗄️ Estrutura do Banco de Dados
+
+O banco de dados **`gestor_academico.db`** é composto pelas seguintes tabelas:
+
+* **CURSOS** – Código, nome e pré-requisitos (serializados em JSON);
+* **TURMAS** – Associação de curso, professor, horário e controle de vagas;
+* **ALUNOS** – Cadastro dos discentes;
+* **MATRICULAS** – Tabela associativa entre alunos e turmas, contendo nota e frequência.
+
+---
+
+## ⚙️ Implementação e Regras de Negócio
+
+O principal diferencial técnico do projeto está no **algoritmo de matrícula** (`def matricular`). Antes de efetivar qualquer registro, o sistema executa um **funil rigoroso de validações**:
+
+* Verificação de existência de aluno e turma;
+* Impedimento de matrícula duplicada;
+* Validação de histórico acadêmico (disciplina já cursada/aprovada);
+* Verificação de **pré-requisitos recursivos**;
+* Controle de vagas em tempo real;
+* Detecção automática de **conflitos de horário**.
+
+### Detecção de Conflitos de Horário
+
+* Implementação de um *parser* personalizado (`parse_horario`), que converte strings como `"seg-8-10"` em dados numéricos;
+* Comparação matemática de intervalos para detectar sobreposição entre turmas.
+
+---
+
+## 🚧 Desafios e Soluções Técnicas
+
+### Armazenamento de Listas no SQLite
+
+**Desafio:** O SQLite não possui suporte nativo para listas, necessárias para armazenar os pré-requisitos dos cursos.
+
+**Solução:** Utilização de serialização com `json`:
+
+* Escrita no banco: `json.dumps(lista)`;
+* Leitura do banco: `json.loads(string)`.
+
+Essa abordagem manteve a flexibilidade da Orientação a Objetos dentro de um banco relacional rígido.
+
+---
+
+## ✅ Conclusão e Trabalhos Futuros
+
+O sistema desenvolvido atende com êxito aos requisitos de gestão acadêmica, oferecendo uma aplicação segura, validada e portátil. O uso do **SQLite** garante simplicidade e mobilidade, enquanto a **Programação Orientada a Objetos** facilita a manutenção e evolução do código.
+
+### Possíveis Evoluções
+
+* Implementação de uma **Interface Gráfica (GUI)**;
+* Sistema de autenticação com níveis de acesso (Administrador e Aluno);
+* Implementação de **exclusão em cascata (Cascade Delete)** para maior integridade referencial.
+
+---
+
+📌 *Projeto acadêmico desenvolvido para fins educacionais.*
