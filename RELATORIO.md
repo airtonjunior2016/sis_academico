@@ -1,8 +1,8 @@
 # 📚 Sistema Acadêmico (SisAcademico)
 
-> **Relatório Técnico – Sistema de Gestão Acadêmica**
-> **Disciplina:** Programação Orientada a Objetos
-> #**Autores:** Airton Junior, Francisco Eduardo
+**Relatório Técnico – Sistema de Gestão Acadêmica**
+**Disciplina:** Programação Orientada a Objetos
+**Autores:** Airton Junior, Francisco Eduardo
 
 ---
 
